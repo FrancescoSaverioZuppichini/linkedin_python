@@ -1,4 +1,4 @@
-from src.hello import hello
+from linkedin_python.api import API
 
 
 def test_hello():
