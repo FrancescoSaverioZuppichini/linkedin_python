@@ -22,8 +22,7 @@ setuptools.setup(
     install_requires=[
         "requests"
     ],
-    packages=find_packages(where="src"),
-    package_dir={"": "src"},
+    packages=find_packages(exclude="test,"),
     extras_require={
         "dev": ["flake8", "black==22.3.0", "isort", "twine", "pytest", "wheel"],
     },
