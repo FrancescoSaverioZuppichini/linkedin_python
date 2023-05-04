@@ -1,8 +1,4 @@
-from dataclasses import dataclass
 from typing import List, Optional, Tuple
-
-from requests import Response
-from rich import print
 
 from .api import API
 from .schemas import *
@@ -95,4 +91,7 @@ class User:
             "visibility": {"com.linkedin.ugc.MemberNetworkVisibility": "PUBLIC"},
         }
 
-        return self._api.create_post(create_post_body).json()
+        return self._api.create_post(create_post_body)
+
+    def info(self) -> UserProfile:
+        return self._me

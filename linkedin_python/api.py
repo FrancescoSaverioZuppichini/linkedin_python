@@ -1,6 +1,6 @@
 import os
 from functools import cache
-from typing import Dict, TypedDict
+from typing import Dict
 
 import requests
 
@@ -136,7 +136,7 @@ class API:
         Returns:
             CreatePostResponse: A dictionary containing the requests reply
         """
-        return self.session.post("https://api.linkedin.com/v2/ugcPosts", json=body)
+        return self.session.post("https://api.linkedin.com/v2/ugcPosts", json=body).json()
 
     def register_upload(self, body: RegisterUploadBody) -> RegisterUploadResponse:
         return self.session.post(
@@ -152,4 +152,8 @@ class API:
 
     @classmethod
     def from_env(cls):
-        return cls(os.environ["LINKEDIN_TOKEN"])
+        try:
+            token = os.environ["LINKEDIN_TOKEN"]
+            return cls(token)
+        except KeyError:
+            raise KeyError("`LINKEDIN_TOKEN` not found in your enviroment variables. Follow this tutorial (https://youtu.be/YJoof1kX_kQ and run `export LINKEDIN_TOKEN=<YOUR_TOKEN> in your current shell")

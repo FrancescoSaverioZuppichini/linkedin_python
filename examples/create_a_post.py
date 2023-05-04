@@ -1,4 +1,4 @@
-from linkedin_
+from linkedin_python import User
 
 
 user = User()
