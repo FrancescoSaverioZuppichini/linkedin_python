@@ -8,7 +8,7 @@ The official LinkedIn doc is [here](https://learn.microsoft.com/en-gb/linkedin/c
 You can install the package using pip
 
 ```
-pip install linked_pythoon
+pip install linked_python
 ```
 
 ## Getting Started
