@@ -7,18 +7,6 @@ The official LinkedIn doc is [here](https://learn.microsoft.com/en-gb/linkedin/c
 
 You can install the package using pip
 
-```bash
-pip install -e .
-```
-
-or for development
-
-```bash
-pip install -e ".[dev]"
-```
-
-## Installation
-
 ```
 pip install linked_pythoon
 ```
