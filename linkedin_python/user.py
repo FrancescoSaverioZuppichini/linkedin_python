@@ -1,3 +1,4 @@
+import os
 from typing import List, Optional, Tuple
 
 from .api import API
@@ -63,11 +64,13 @@ class User:
         Returns:
             CreatePostResponse: The request response
         """
+        assert isinstance(text, str), f"text parameter must be string, you passed {type(text)}"
         shareMediaCategory = "NONE" if images is None else "IMAGE"
         author = f"urn:li:person:{self._me['id']}"
         media: List[Media] = []
 
         if images is not None:
+            assert all([os.path.exists(path) for path, label in images]), "Not all image paths exist."
             for image_path, image_description in images:
                 asset_id = self._register_and_upload_image(image_path)
                 media.append(
